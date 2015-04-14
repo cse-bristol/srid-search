@@ -17,7 +17,7 @@ All files except 'spatial_ref_sys.csv' distributed under the [[http://opensource
 ** Data
 spatial_ref_sys.csv is derived from [[http://svn.osgeo.org/postgis/tags/2.1.7/spatial_ref_sys.sql][spatial_ref_sys.sql]] from [[http://postgis.net/][the PostGIS project]], and therefore may be used under GPLv2 or a later version of the GPL license [[http://svn.osgeo.org/postgis/tags/2.1.7/LICENSE.TXT][as described here]].
 
-The data was derived by installing PostGIS, enabling it on a database, and then running the following command:
+The data was derived by installing PostGIS, enabling it on a database, and then running the following SQL command:
 #+BEGIN_SRC sql
 COPY spatial_ref_sys TO '/tmp/spatial_ref_sys.csv' DELIMITER ',' CSV HEADER;
 #+END_SRC

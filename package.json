@@ -5,6 +5,7 @@
     "keywords": ["srid", "gis", "mapping", "crs", "coordinate reference"],
     "url": "https://github.com/cse-bristol/srid-search",
     "license": "MIT",
+    "main": "js/srid-search.js",
 
     "repository": {
 	"type": "git",
