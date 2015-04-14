@@ -11,6 +11,12 @@
 	"type": "git",
 	"url": "git://github.com/cse-bristol/srid-search.git"
     },
+
+    "directories": {
+	"js": "js",
+	"data": "data"
+    },
+    
     
     "dependencies": {
 	"lunr": "0.5.8",

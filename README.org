@@ -12,10 +12,10 @@ The rationale behind this is to protect people from having to know all about the
 #+END_SRC
 
 ** Licensing
-All files except 'spatial_ref_sys.csv' distributed under the [[http://opensource.org/licenses/MIT][MIT license]].
+All files except 'data/spatial_ref_sys.csv' distributed under the [[http://opensource.org/licenses/MIT][MIT license]].
 
 ** Data
-spatial_ref_sys.csv is derived from [[http://svn.osgeo.org/postgis/tags/2.1.7/spatial_ref_sys.sql][spatial_ref_sys.sql]] from [[http://postgis.net/][the PostGIS project]], and therefore may be used under GPLv2 or a later version of the GPL license [[http://svn.osgeo.org/postgis/tags/2.1.7/LICENSE.TXT][as described here]].
+data/spatial_ref_sys.csv is derived from [[http://svn.osgeo.org/postgis/tags/2.1.7/spatial_ref_sys.sql][spatial_ref_sys.sql]] from [[http://postgis.net/][the PostGIS project]], and therefore may be used under GPLv2 or a later version of the GPL license [[http://svn.osgeo.org/postgis/tags/2.1.7/LICENSE.TXT][as described here]].
 
 The data was derived by installing PostGIS, enabling it on a database, and then running the following SQL command:
 #+BEGIN_SRC sql

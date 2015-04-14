@@ -21,7 +21,7 @@ module.exports = function(errors) {
 	ready = false,
 	onReady;
 
-    fs.readFile("spatial_ref_sys.csv", "utf8", function(error, data) {
+    fs.readFile("data/spatial_ref_sys.csv", "utf8", function(error, data) {
 	if (error) {
 	    errors(error);
 	} else {
