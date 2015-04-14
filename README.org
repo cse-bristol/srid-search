@@ -1,0 +1,17 @@
+* SRID Search
+A [[https://nodejs.org/][Node JS]] module providing free text search of [[http://en.wikipedia.org/wiki/SRID][SRIDs]].
+
+The rationale behind this is to protect people from having to know all about the full details of the coordinate reference system their data is in. Rather: if they happen to know the SRID or at least have a rough idea of where it comes from, we can probably make a good guess as to what it might be.
+
+** Demo
+#+BEGIN_SRC sh
+  node demo.js term1 term2 term3 ...
+
+  # For Example
+  node demo.js 27700 National Italy
+#+END_SRC
+
+** Licensing
+All files except 'spatial_ref_sys.csv' distributed under the [[http://opensource.org/licenses/MIT][MIT license]].
+
+spatial_ref_sys.csv is derived from [[http://svn.osgeo.org/postgis/tags/2.1.7/spatial_ref_sys.sql][spatial_ref_sys.sql]] from [[http://postgis.net/][the PostGIS project]], and therefore may be used under GPLv2 or a later version of the GPL license [[http://svn.osgeo.org/postgis/tags/2.1.7/LICENSE.TXT][as described here]].

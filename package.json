@@ -1,0 +1,18 @@
+{
+    "name": "srid-search",
+    "version": "0.1.0",
+    "description": "Identify an SRID by free text search.",
+    "keywords": ["srid", "gis", "mapping", "crs", "coordinate reference"],
+    "url": "https://github.com/cse-bristol/srid-search",
+    "license": "MIT",
+
+    "repository": {
+	"type": "git",
+	"url": "git://github.com/cse-bristol/srid-search.git"
+    },
+    
+    "dependencies": {
+	"lunr": "0.5.8",
+	"csv": "0.4.1"
+    }
+}
