@@ -1,8 +1,9 @@
 "use strict";
 
-/*global module, require*/
+/*global module, require, __dirname*/
 
-var fs = require('fs'),
+var fs = require("fs"),
+    path = require("path"),
     csv = require("csv"),
     lunr = require("lunr");
 
@@ -21,46 +22,50 @@ module.exports = function(errors) {
 	ready = false,
 	onReady;
 
-    fs.readFile("data/spatial_ref_sys.csv", "utf8", function(error, data) {
-	if (error) {
-	    errors(error);
-	} else {
-	    csv.parse(data, {}, function(error, result) {
-		if (error) {
-		    errors(error);
-		} else {
-		    var header;
+    fs.readFile(
+	path.join(__dirname, "../data/spatial_ref_sys.csv"),
+	"utf8"
+	, function(error, data) {
+	    if (error) {
+		errors(error);
+	    } else {
+		csv.parse(data, {}, function(error, result) {
+		    if (error) {
+			errors(error);
+		    } else {
+			var header;
 
-		    result.forEach(function(row, i) {
-			if (i === 0) {
-			    header = row;
-			    
-			} else {
-			    var doc = {};
+			result.forEach(function(row, i) {
+			    if (i === 0) {
+				header = row;
+				
+			    } else {
+				var doc = {};
 
-			    header.forEach(function(columnTitle, i) {
-				doc[columnTitle] = row[i];
-			    });
+				header.forEach(function(columnTitle, i) {
+				    doc[columnTitle] = row[i];
+				});
 
-			    if (doc.srtext.indexOf("deprecated") >= 0) {
-				// Filter out deprecated CRS.
-				return;
+				if (doc.srtext.indexOf("deprecated") >= 0) {
+				    // Filter out deprecated CRS.
+				    return;
+				}
+				
+				docs[doc.srid] = doc;
+
+				index.add(doc);
 			    }
-			    
-			    docs[doc.srid] = doc;
+			});
 
-			    index.add(doc);
+			ready = true;
+			if (onReady) {
+			    onReady();
 			}
-		    });
-
-		    ready = true;
-		    if (onReady) {
-			onReady();
 		    }
-		}
-	    });
+		});
+	    }
 	}
-    });
+    );
     
     var m = function(term) {
 	return index.search(term)
